@@ -1,0 +1,10 @@
+version: '3'
+
+services:
+  dashboard-service:
+    build: ./dashboard-service
+    image: rostyslav/dashboard-serivce
+    ports:
+      - "127.0.0.1:9000:9000"
+    hostname: localhost
+    network_mode: host

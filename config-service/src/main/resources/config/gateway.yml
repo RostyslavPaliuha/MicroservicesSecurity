@@ -1,0 +1,45 @@
+server:
+  port: 8080
+  servlet:
+    contextPath: /
+spring:
+  boot:
+    admin:
+      client:
+        url: "http://localhost:9000"
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+    jmx:
+      exposure:
+        include: "*"
+  endpoint:
+    web:
+      exposure:
+        include: "*"
+  security:
+    enabled: false
+security:
+  ignored: /actuator/**
+zuul:
+  sensitive-headers:
+  routes:
+    auth-service:
+      path: /login/**
+      url: http://localhost:8081/
+      sensitiveHeaders: Cookie,Set-Cookie
+      stripPrefix: false
+    backend-service:
+      path: /backend/**
+      url: http://localhost:8082/
+    backend-2:
+      path: /backend-2/**
+      url: http://localhost:8083/
+      sensitiveHeaders:
+
+security:
+  jwt:
+    secret: otherpeopledontknowit

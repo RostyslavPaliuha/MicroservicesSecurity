@@ -1,0 +1,10 @@
+version: '3'
+
+services:
+  backend-2:
+    build: ./backend-service-2
+    image: rostyslav/backend-service-2
+    ports:
+      - "127.0.0.1:8083:8083"
+    hostname: localhost
+    network_mode: host

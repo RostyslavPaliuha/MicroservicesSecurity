@@ -1,0 +1,21 @@
+spring:
+  application:
+    name: backend
+  cloud:
+    config:
+      uri: http://localhost:8345
+      name: backend
+      failFast: true
+    consul:
+      host: localhost
+      port: 8500
+
+logging:
+  level:
+    springframework:
+      web: debug
+  path:  /var/log
+  file: ${spring.application.name}.log
+
+
+

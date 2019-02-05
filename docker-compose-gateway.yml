@@ -1,0 +1,10 @@
+version: '3'
+
+services:
+  gateway-service:
+    build: ./gateway-service
+    image: rostyslav/gateway-serivce
+    ports:
+      - "127.0.0.1:8080:8080"
+    hostname: localhost
+    network_mode: host

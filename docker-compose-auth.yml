@@ -1,0 +1,10 @@
+version: '3'
+
+services:
+  auth-service:
+    build: ./auth-service
+    image: rostyslav/auth-serivce
+    ports:
+      - "127.0.0.1:8081:8081"
+    hostname: localhost
+    network_mode: host

@@ -1,0 +1,11 @@
+version: '3'
+
+services:
+  config:
+    build: ./config-service
+    image: rostyslav/config-service
+    ports:
+      - "127.0.0.1:8345:8345"
+    hostname: localhost
+    network_mode: host
+

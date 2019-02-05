@@ -1,0 +1,25 @@
+server:
+  port: 8083
+
+spring:
+  boot:
+    admin:
+      client:
+        url: "http://localhost:9000"
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+    jmx:
+      exposure:
+        include: "*"
+  endpoint:
+    web:
+      exposure:
+        include: "*"
+  security:
+    enabled: false
+
+myProperty: backend-2 property value

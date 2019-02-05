@@ -1,0 +1,10 @@
+version: '3'
+
+services:
+  discovery:
+    build: ./discovery-service
+    image: rostyslav/discovery-service
+    ports:
+      - "127.0.0.1:8761:8761"
+    hostname: localhost
+    network_mode: host

@@ -1,0 +1,27 @@
+server:
+  port: 8345
+
+spring:
+  profiles:
+    active: native
+  boot:
+    admin:
+      client:
+        url: "http://localhost:9000"
+        instance:
+          prefer-ip: true
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+    jmx:
+      exposure:
+        include: "*"
+  endpoint:
+    web:
+      exposure:
+        include: "*"
+
+
