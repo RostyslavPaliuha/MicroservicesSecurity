@@ -86,7 +86,7 @@ send get request via postman with header "Authorization: Bearer token-you-got" h
 ```
 or without token:
 ```bash
-send getrequest without any header to http://localhost:8080/backend/api/guest
+send get request without any header to http://localhost:8080/backend/api/guest
 ```
 
 ## 4. MANAGEMENT VIA SPRING BOOT ADMIN

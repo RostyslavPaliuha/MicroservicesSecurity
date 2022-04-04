@@ -6,7 +6,7 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.0.1.RELEASE</version>
+        <version>2.6.3</version>
     </parent>
 
     <modelVersion>4.0.0</modelVersion>
@@ -16,39 +16,43 @@
     <version>1.0</version>
     <packaging>pom</packaging>
 
+    <modules>
+        <module>../auth-service</module>
+        <module>../backend-service</module>
+        <module>../backend-service-2</module>
+        <module>../common-security</module>
+        <module>../config-service</module>
+        <module>../dashboard-service</module>
+        <module>../discovery-service</module>
+        <module>../gateway-service</module>
+        <module>../registration-service</module>
+    </modules>
+
     <properties>
-        <java.version>1.8</java.version>
-        <maven.compiler.source>${java.version}</maven.compiler.source>
-        <maven.compiler.target>${java.version}</maven.compiler.target>
+        <java.version>17</java.version>
         <maven.compiler.forceJavacCompilerUse>true</maven.compiler.forceJavacCompilerUse>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <cloud.dependencies.version>Finchley.RELEASE</cloud.dependencies.version>
-        <cloud.dependencies.consul.version>2.0.1.BUILD-SNAPSHOT</cloud.dependencies.consul.version>
+        <cloud.dependencies.version>2021.0.0</cloud.dependencies.version>
         <javax.servlet.version>3.1.0</javax.servlet.version>
-        <lombok.version>1.18.2</lombok.version>
+        <lombok.version>1.18.22</lombok.version>
         <lombok-mvn.version>1.18.0.0</lombok-mvn.version>
-
         <jsonwebtoken.version>0.9.0</jsonwebtoken.version>
-        <spring.security.core.version>5.0.6.RELEASE</spring.security.core.version>
+        <spring.security.core.version>5.6.1</spring.security.core.version>
         <spring.starter.security.version>2.0.3.RELEASE</spring.starter.security.version>
-        <spring.starter.zull.version>2.0.0.M2</spring.starter.zull.version>
-        <spring.cloud.config.version>2.0.0.M9</spring.cloud.config.version>
-        <spring.cloud.starter.config.version>2.0.0.M9</spring.cloud.starter.config.version>
-        <spring.cloud.config.server.version>2.0.0.M9</spring.cloud.config.server.version>
-        <spring.cloud.config.client.version>2.0.0.M9</spring.cloud.config.client.version>
-        <spring.cloud.starter.consul.discovery.version>2.0.0.RELEASE</spring.cloud.starter.consul.discovery.version>
-        <spring.cloud.starter.zipkin.version>2.0.0.RC1</spring.cloud.starter.zipkin.version>
-        <spring.cloud.starter.sleuth.version>2.0.0.RC1</spring.cloud.starter.sleuth.version>
-        <spring.boot.admin.server.version>2.0.0-SNAPSHOT</spring.boot.admin.server.version>
-        <spring.boot.admin.client.version>2.0.0-SNAPSHOT</spring.boot.admin.client.version>
+        <spring.cloud.starter.config.version>3.1.0</spring.cloud.starter.config.version>
+        <spring.boot.admin.server.version>2.6.2</spring.boot.admin.server.version>
+        <spring.boot.admin.client.version>2.6.2</spring.boot.admin.client.version>
         <spring.boot.starter.actuator.version>2.0.1.RELEASE</spring.boot.starter.actuator.version>
-        <spring.boot.starter.web.version>2.0.3.RELEASE</spring.boot.starter.web.version>
+        <spring.boot.starter.web.version>2.6.3</spring.boot.starter.web.version>
         <spring.boot.starter.security.version>2.0.1.RELEASE</spring.boot.starter.security.version>
         <spring.boot.maven.plugin.version>2.0.0.RELEASE</spring.boot.maven.plugin.version>
         <maven.jar.plugin.version>3.0.2</maven.jar.plugin.version>
         <versions.maven.plugin.version>2.5</versions.maven.plugin.version>
         <common.security.version>0.1-SNAPSHOT</common.security.version>
+        <maven.compiler.plugin.version>3.9.0</maven.compiler.plugin.version>
         <start-class></start-class>
+        <spring-cloud-starter-netflix-eureka-server.version>3.1.0</spring-cloud-starter-netflix-eureka-server.version>
+        <spring-cloud-starter-netflix-eureka-client.version>3.1.0</spring-cloud-starter-netflix-eureka-client.version>
     </properties>
 
     <dependencyManagement>
@@ -73,9 +77,19 @@
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-starter-consul-discovery</artifactId>
-                <version>${spring.cloud.starter.consul.discovery.version}</version>
+                <version>3.1.0</version>
             </dependency>
 
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-starter-netflix-eureka-server</artifactId>
+                <version>${spring-cloud-starter-netflix-eureka-server.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+            </dependency>
 
             <dependency>
                 <groupId>org.springframework.boot</groupId>
@@ -124,13 +138,12 @@
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-starter-zuul</artifactId>
-                <version>${spring.starter.zull.version}</version>
+                <version>1.4.7.RELEASE</version>
             </dependency>
 
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-config</artifactId>
-                <version>${spring.cloud.config.version}</version>
             </dependency>
 
             <dependency>
@@ -142,13 +155,13 @@
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-config-server</artifactId>
-                <version>${spring.cloud.config.version}</version>
+                <version>3.1.0</version>
             </dependency>
 
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-config-client</artifactId>
-                <version>${spring.cloud.config.client.version}</version>
+                <version>3.1.0</version>
             </dependency>
 
 
@@ -173,13 +186,13 @@
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-starter-zipkin</artifactId>
-                <version>${spring.cloud.starter.zipkin.version}</version>
+                <version>2.2.8.RELEASE</version>
             </dependency>
 
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-starter-sleuth</artifactId>
-                <version>${spring.cloud.starter.sleuth.version}</version>
+                <version>3.1.0</version>
             </dependency>
 
             <dependency>
@@ -194,6 +207,16 @@
 
         <pluginManagement>
             <plugins>
+
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-compiler-plugin</artifactId>
+                    <version>3.9.0</version>
+                    <configuration>
+                        <source>${java.version}</source>
+                        <target>${java.version}</target>
+                    </configuration>
+                </plugin>
 
                 <plugin>
                     <groupId>com.spotify</groupId>
@@ -236,37 +259,4 @@
             </plugins>
         </pluginManagement>
     </build>
-    <repositories>
-        <repository>
-            <id>spring-milestones</id>
-            <name>Spring Milestones</name>
-            <url>https://repo.spring.io/milestone</url>
-            <snapshots>
-                <enabled>false</enabled>
-            </snapshots>
-        </repository>
-
-        <repository>
-            <id>sonatype-nexus-snapshots</id>
-            <name>Sonatype Nexus Snapshots</name>
-            <url>https://oss.sonatype.org/content/repositories/snapshots/</url>
-            <snapshots>
-                <enabled>true</enabled>
-            </snapshots>
-            <releases>
-                <enabled>false</enabled>
-            </releases>
-        </repository>
-
-        <repository>
-            <id>spring-snapshots</id>
-            <name>Spring Snapshots</name>
-            <url>https://repo.spring.io/libs-snapshot</url>
-            <snapshots>
-                <enabled>true</enabled>
-            </snapshots>
-        </repository>
-
-    </repositories>
-
 </project>

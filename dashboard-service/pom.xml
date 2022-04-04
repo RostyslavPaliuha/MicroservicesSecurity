@@ -8,7 +8,7 @@
         <groupId>com.rostyslav</groupId>
         <artifactId>microservices-starter</artifactId>
         <version>1.0</version>
-        <relativePath/>
+        <relativePath>../microservices-starter/pom.xml</relativePath>
     </parent>
 
     <groupId>com.rostyslav</groupId>

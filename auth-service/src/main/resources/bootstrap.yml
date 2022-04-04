@@ -5,11 +5,12 @@ spring:
     config:
       uri: http://localhost:8345
       name: auth
-      failFast: true
+      fail-fast: true
     consul:
       host: localhost
       port: 8500
-
-
-
-
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    username: postgres
+    password: password
+    url: jdbc:postgresql://localhost:5432/postgres

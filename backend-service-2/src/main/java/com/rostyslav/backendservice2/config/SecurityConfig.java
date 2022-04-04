@@ -1,7 +1,7 @@
 package com.rostyslav.backendservice2.config;
 
 
-import com.itwconsulting.socan.common.utils.JwtAuthorizationFilter;
+import com.rostyslav.utils.JwtAuthorizationFilter;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -38,11 +38,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .and()
                 .anonymous().and()
                 .exceptionHandling().authenticationEntryPoint(
-                (req, rsp, e) -> rsp.sendError(HttpServletResponse.SC_UNAUTHORIZED))
+                        (req, rsp, e) -> rsp.sendError(HttpServletResponse.SC_UNAUTHORIZED))
                 .and()
                 .addFilter(new JwtAuthorizationFilter(authenticationManager()));
-
     }
-
-
 }

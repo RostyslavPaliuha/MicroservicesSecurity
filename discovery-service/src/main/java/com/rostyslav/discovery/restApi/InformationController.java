@@ -17,8 +17,6 @@ public class InformationController {
 
     @GetMapping("instances/{instanceName}")
     public ResponseEntity getInstanceInformation(@PathVariable("instanceName") String instance) {
-
-
         return new ResponseEntity(discoveryClient.getInstances(instance), HttpStatus.OK);
     }
 }

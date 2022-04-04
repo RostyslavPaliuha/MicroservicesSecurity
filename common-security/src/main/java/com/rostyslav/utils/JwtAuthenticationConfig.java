@@ -23,6 +23,4 @@ public class JwtAuthenticationConfig {
 
     @Value("${security.jwt.secret:otherpeopledontknowit}")
     private String secret;
-
-
 }
