@@ -24,6 +24,8 @@ management:
     enabled: false
 security:
   ignored: /actuator/**
+  jwt:
+    secret: otherpeopledontknowit
 zuul:
   sensitive-headers:
   routes:
@@ -39,7 +41,3 @@ zuul:
       path: /backend-2/**
       url: http://localhost:8083/
       sensitiveHeaders:
-
-security:
-  jwt:
-    secret: otherpeopledontknowit
