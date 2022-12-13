@@ -17,15 +17,15 @@
     <packaging>pom</packaging>
 
     <modules>
-       <!-- <module>../auth-service</module>
-        <module>../backend-service</module>
-        <module>../backend-service-2</module>
-        <module>../common-security</module>-->
+        <!-- <module>../auth-service</module>
+         <module>../backend-service</module>
+         <module>../backend-service-2</module>
+         -->
+        <module>../common-security</module>
         <module>../config-service</module>
         <module>../dashboard-service</module>
-        <!-- <module>../discovery-service</module>
-         <module>../gateway-service</module>
-         <module>../registration-service</module>-->
+        <module>../gateway-service</module>
+
     </modules>
 
     <properties>
@@ -37,22 +37,12 @@
         <lombok.version>1.18.22</lombok.version>
         <lombok-mvn.version>1.18.0.0</lombok-mvn.version>
         <jsonwebtoken.version>0.9.0</jsonwebtoken.version>
-        <spring.security.core.version>5.6.1</spring.security.core.version>
-        <spring.starter.security.version>2.0.3.RELEASE</spring.starter.security.version>
-        <spring.cloud.starter.config.version>3.1.0</spring.cloud.starter.config.version>
-        <spring.boot.admin.server.version>2.6.2</spring.boot.admin.server.version>
-        <spring.boot.admin.client.version>2.6.2</spring.boot.admin.client.version>
-        <spring.boot.starter.web.version>2.6.3</spring.boot.starter.web.version>
-        <spring.boot.starter.security.version>2.0.1.RELEASE</spring.boot.starter.security.version>
         <spring.boot.maven.plugin.version>2.0.0.RELEASE</spring.boot.maven.plugin.version>
         <maven.jar.plugin.version>3.0.2</maven.jar.plugin.version>
         <versions.maven.plugin.version>2.5</versions.maven.plugin.version>
         <common.security.version>0.1-SNAPSHOT</common.security.version>
         <maven.compiler.plugin.version>3.9.0</maven.compiler.plugin.version>
         <start-class></start-class>
-        <spring-cloud-starter-netflix-eureka-server.version>3.1.0</spring-cloud-starter-netflix-eureka-server.version>
-        <spring-cloud-starter-netflix-eureka-client.version>3.1.4</spring-cloud-starter-netflix-eureka-client.version>
-        <spring-cloud-starter-bootstrap.version>3.1.5</spring-cloud-starter-bootstrap.version>
 
         <spring-cloud-dependencies.version>2022.0.0-RC3</spring-cloud-dependencies.version>
         <spring-cloud-config-server.version>4.0.0-RC3</spring-cloud-config-server.version>
@@ -126,20 +116,14 @@
                 <version>${common.security.version}</version>
             </dependency>
 
-
-            <!-- https://mvnrepository.com/artifact/de.codecentric/spring-boot-admin-starter-server -->
+            <!--Spring monitoring-->
             <dependency>
                 <groupId>de.codecentric</groupId>
                 <artifactId>spring-boot-admin-starter-server</artifactId>
                 <version>3.0.0-M5</version>
             </dependency>
 
-
-            <dependency>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-starter-web</artifactId>
-                <version>${spring.boot.starter.web.version}</version>
-            </dependency>
+            <!--Common dependencies-->
 
             <dependency>
                 <groupId>javax.servlet</groupId>
@@ -167,30 +151,13 @@
                 <version>${jsonwebtoken.version}</version>
             </dependency>
 
-            <dependency>
-                <groupId>org.springframework.security</groupId>
-                <artifactId>spring-security-core</artifactId>
-                <version>${spring.security.core.version}</version>
-            </dependency>
 
-            <dependency>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-starter-security</artifactId>
-                <version>${spring.starter.security.version}</version>
-            </dependency>
 
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-starter-zuul</artifactId>
                 <version>1.4.7.RELEASE</version>
             </dependency>
-
-            <dependency>
-                <groupId>de.codecentric</groupId>
-                <artifactId>spring-boot-admin-starter-client</artifactId>
-                <version>${spring.boot.admin.client.version}</version>
-            </dependency>
-
 
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
