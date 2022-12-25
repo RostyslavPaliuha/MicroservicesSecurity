@@ -13,7 +13,6 @@ import org.springframework.stereotype.Component;
 public class DBInitializer implements CommandLineRunner {
 
     @Autowired
-    @Lazy
     private AccountAuthDetailsRepository accountAuthDetailsRepository;
 
     @Override
@@ -24,7 +23,7 @@ public class DBInitializer implements CommandLineRunner {
         accountAuthenticationDetailsEntity.setPassword("password");
         accountAuthenticationDetailsEntity.setAuthority("ADMIN");
         accountAuthenticationDetailsEntity.setEnabled(true);
-        accountAuthenticationDetailsEntity.setNotExpired(false);
+        accountAuthenticationDetailsEntity.setNotExpired(true);
         accountAuthenticationDetailsEntity.setFirstName("Rostyslav");
         accountAuthenticationDetailsEntity.setLastName("Paliuha");
         accountAuthenticationDetailsEntity.setNotLocked(true);
@@ -38,7 +37,6 @@ public class DBInitializer implements CommandLineRunner {
      */
     private void addNewInitialAccount(AccountAuthenticationDetailsEntity accountAuthenticationDetailsEntity) {
         if (!accountAuthDetailsRepository.existsByLoginName("rostyslav")) {
-
             accountAuthDetailsRepository.save(accountAuthenticationDetailsEntity);
         }
     }

@@ -1,0 +1,41 @@
+server:
+  port: 8080
+  servlet:
+    contextPath: /
+  ssl:
+    enabled: true
+    #key-alias: myorg
+    key-store-password: 123456
+    key-store: classpath:keystore/keystore.jks
+    #key-store-type: PKCS12
+    #protocol: TLS
+    #enabled-protocols: TLSv1.3
+spring:
+  application:
+    name: gateway
+  config:
+    import: configserver:http://localhost:8345
+  main:
+    allow-bean-definition-overriding: true
+
+  cloud:
+    gateway:
+      actuator:
+        verbose:
+          enabled: true
+logging:
+  level:
+    springframework:
+      web: debug
+  path: /var/log
+  file: ${spring.application.name}.log
+management:
+  endpoint:
+    gateway:
+      enabled: true
+  management:
+    endpoints:
+      web:
+        exposure:
+          include: gateway
+debug: true

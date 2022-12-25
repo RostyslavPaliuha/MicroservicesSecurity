@@ -1,0 +1,36 @@
+server:
+  port: 8081
+
+spring:
+  profiles:
+    active: devH2
+  application:
+    name: authentication-service
+  config:
+    import: configserver:http://localhost:8345
+  cloud:
+    consul:
+      host: localhost
+      port: 8500
+      discovery:
+        prefer-ip-address: true
+        health-check-path: /actuator/health
+        health-check-interval: 15s
+        health-check-timeout: 90s
+        health-check-critical-timeout: 3m
+        instanceId: ${spring.application.name}-${server.port}-${spring.cloud.client.ip-address}
+  h2:
+    console.enabled: true
+  datasource:
+    jpa:
+      show-sql: true
+      generate-ddl: true
+      hibernate:
+        ddl-auto: create-drop
+    url: jdbc:h2:mem:devEnvDb
+    driverClassName: org.h2.Driver
+    username: sa
+    password: password
+    database-platform: org.hibernate.dialect.H2Dialect
+
+debug: true

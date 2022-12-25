@@ -11,22 +11,17 @@
         <relativePath>../microservices-starter/pom.xml</relativePath>
     </parent>
 
+    <groupId>com.rostyslav</groupId>
+    <artifactId>book-service</artifactId>
+    <packaging>jar</packaging>
+    <version>1.0.0</version>
+    <name>book-service</name>
+
     <properties>
-        <start-class>com.rostyslav.gateway.GateWayApplication</start-class>
+        <start-class>com.rostyslav.books.BookServiceApplication</start-class>
     </properties>
 
-    <groupId>com.rostyslav</groupId>
-    <artifactId>gateway-service</artifactId>
-    <version>0.0.2</version>
-    <packaging>jar</packaging>
-    <name>gateway-service</name>
-
     <dependencies>
-        <!--Spring boot dependencies-->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-actuator</artifactId>
-        </dependency>
 
         <!--Spring cloud dependencies-->
         <dependency>
@@ -36,29 +31,39 @@
 
         <dependency>
             <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-gateway</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-consul-discovery</artifactId>
         </dependency>
 
+        <!--Spring boot dependencies-->
         <dependency>
-            <groupId>jakarta.servlet</groupId>
-            <artifactId>jakarta.servlet-api</artifactId>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
 
         <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-            <scope>compile</scope>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-actuator</artifactId>
         </dependency>
 
-        <!--Security dependencies-->
         <dependency>
-            <groupId>com.rostyslav</groupId>
-            <artifactId>common-security</artifactId>
+            <groupId>org.springframework.kafka</groupId>
+            <artifactId>spring-kafka</artifactId>
+        </dependency>
+
+        <!--Spring security-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-security</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-core</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-config</artifactId>
         </dependency>
 
         <dependency>
@@ -75,17 +80,20 @@
             <groupId>io.jsonwebtoken</groupId>
             <artifactId>jjwt-jackson</artifactId>
         </dependency>
-        <!--Testing-->
+
         <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-test</artifactId>
-            <scope>test</scope>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.rostyslav</groupId>
+            <artifactId>common-security</artifactId>
         </dependency>
     </dependencies>
 
     <build>
         <plugins>
-
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
@@ -109,8 +117,6 @@
                     </archive>
                 </configuration>
             </plugin>
-
         </plugins>
     </build>
-
 </project>

@@ -1,0 +1,14 @@
+server:
+  port: 9000
+spring:
+  config:
+    import: configserver:http://localhost:8345
+  application:
+    name: dashboard
+logging:
+  level:
+    springframework:
+      web: debug
+  path:  /var/log
+  file: ${spring.application.name}.log
+

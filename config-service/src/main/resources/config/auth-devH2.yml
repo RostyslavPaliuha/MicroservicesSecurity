@@ -1,10 +1,9 @@
-server:
-  port: 8081
-
-jwtconfig:
-  secret: otherpeopledontknowit
-
+security:
+  jwt:
+    signKey: otherpeopledontknowit!@#
 spring:
+  h2:
+    console.enabled: true
   boot:
     admin:
       client:
@@ -15,7 +14,11 @@ spring:
       generate-ddl: true
       hibernate:
         ddl-auto: create-drop
-
+    url: jdbc:h2:mem:devEnvDb
+    driverClassName: org.h2.Driver
+    username: sa
+    password: password
+    database-platform: org.hibernate.dialect.H2Dialect
 management:
   endpoints:
     web:

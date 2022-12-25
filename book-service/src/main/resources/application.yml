@@ -1,0 +1,21 @@
+spring:
+  application:
+    name: book-service
+  config:
+    import: configserver:http://localhost:8345
+  kafka:
+    bootstrap-servers: localhost:9092
+    consumer:
+      group-id: myGroup
+
+logging:
+  level:
+    springframework:
+      web: debug
+  path: /var/log
+  file: ${spring.application.name}.log
+
+debug: true
+kafka:
+  topics:
+    book-arrived: book_arrived

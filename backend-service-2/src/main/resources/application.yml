@@ -1,0 +1,16 @@
+spring:
+  application:
+    name: backend-2
+  config:
+    import: configserver:http://localhost:8345
+    consul:
+      host: localhost
+      port: 8500
+  kafka:
+    bootstrap-servers: localhost:9092
+    consumer:
+      group-id: myGroup
+
+kafka:
+  topics:
+    book-arrived: book_arrived

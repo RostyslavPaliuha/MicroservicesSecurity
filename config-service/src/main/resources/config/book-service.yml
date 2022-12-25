@@ -1,3 +1,7 @@
+server:
+  port: 8082
+  servlet:
+    contextPath: /
 spring:
   cloud:
     consul:
@@ -5,7 +9,7 @@ spring:
       port: 8500
       discovery:
         prefer-ip-address: true
-        health-check-path: /actuator/health
+        health-check-path: ${server.servlet.context-path}actuator/health
         health-check-interval: 15s
         health-check-timeout: 90s
         health-check-critical-timeout: 3m
@@ -25,8 +29,7 @@ management:
         include: "*"
   security:
     enabled: false
-security:
-  ignored: /actuator/**
-  jwt:
-    secret: otherpeopledontknowit
 
+adminProperty: admin`s property value
+userProperty: user`s property value
+myProperty: my property value
