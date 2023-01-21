@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RefreshScope
-@RequestMapping("/api")
+@RequestMapping("/api/v1")
 public class Backend2Controller {
 
     private static final Logger logger = LoggerFactory.getLogger(Backend2Controller.class);
